@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard, .map-view, .log-history {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.dashboard {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.dashboard span {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.green { background: green; color: white; }
+.orange { background: orange; color: black; }
+.red { background: red; color: white; }
+
+.map-view {
+  grid-column: span 2;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+}
+
+
+.log-history ul {
+  list-style: none;
+  padding: 0;
+}
