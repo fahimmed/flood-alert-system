@@ -11,9 +11,15 @@ The project is built using **React.js** and **Leaflet.js** for interactive mappi
 
 # Getting Started and Clone the Repository
 
-git clone https://github.com/fahimmed/flood-alert-system.git
-cd flood-alert-system
-npm install   # (if using Node.js, install dependencies)
+- git clone https://github.com/fahimmed/flood-alert-system.git
+- cd flood-alert-system
+- npm install   # (if using Node.js, install dependencies)
+
+- **Install node:**
+- Download and install Node.js (includes npm) from here (https://nodejs.org/en).
+- Verify installation by running in terminal:
+    - node -v
+    - npm -v
 
 ## Available Scripts
 
