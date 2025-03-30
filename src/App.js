@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import MapView from "./components/MapView";
 import AlertLog from "./components/AlertLog";
+import LineChart from "./components/LineChart"; 
 
 const mockFloodData = {
   polygonCoordinates: [
@@ -19,6 +20,13 @@ const getFloodColor = (riskLevel) => {
   if (riskLevel === "orange") return "orange";
   if (riskLevel === "red") return "red";
   return "blue";
+};
+
+const riskLevelToNumber = (level) => {
+  if (level === "green") return 1;
+  if (level === "orange") return 2;
+  if (level === "red") return 3;
+  return 0;
 };
 
 const App = () => {
@@ -45,12 +53,18 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const chartData = [...alertLog]
+  .slice()
+  .reverse()
+  .map((d) => ({ level: riskLevelToNumber(d.level) }));
+
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "20px", padding: "20px" }}>
       <Dashboard floodRisk={floodRisk} getFloodColor={getFloodColor} />
       <MapView floodRisk={floodRisk} getFloodColor={getFloodColor} polygonCoordinates={mockFloodData.polygonCoordinates} />
       <AlertLog alertLog={alertLog} getFloodColor={getFloodColor} />
-    </div>
+      <LineChart data={chartData} />
+        </div>
   );
 };
 
